@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>RECOMMONDATIONS</title>
-</head>
-<body>
+{% extends 'header.html' %}
+
+{% block body %}
 <form action="/upload/" method="POST" enctype="multipart/form-data">
 	select image to upload:
 	<input type="file" name="fileToUpload" id="fileToUpload" multiple="">
@@ -11,5 +8,4 @@
 
 </form>
 
-</body>
-</html>
+{% endblock %}

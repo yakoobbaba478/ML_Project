@@ -3,7 +3,7 @@ from werkzeug import secure_filename
 import os
 
 app = Flask(__name__)
-UPLOAD_FOLDER = './uploads'
+UPLOAD_FOLDER = './static'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 @app.route('/')
 def index():
@@ -28,7 +28,7 @@ def upload_file():
             curr_file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
             print("after filesave",os.path.join(app.config['UPLOAD_FOLDER'],filename))
         
-        return render_template('hello.html')
+        return render_template('display.html', filename=filename)
 
         # if file:
         #     print("inside 2nd if")
