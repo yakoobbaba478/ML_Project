@@ -27,8 +27,9 @@ def upload_file():
             filename = secure_filename(curr_file.filename)
             curr_file.save(os.path.join(app.config['UPLOAD_FOLDER'],filename))
             print("after filesave",os.path.join(app.config['UPLOAD_FOLDER'],filename))
-        
-        return render_template('display.html', filename=filename)
+            image_names = os.listdir('./static')
+        return render_template('gallery.html', image_names = image_names)
+
 
         # if file:
         #     print("inside 2nd if")
@@ -39,7 +40,12 @@ def upload_file():
     else:
         print("inside else")
         return redirect(url_for('hello'))
-        
+
+# @app.route('/gallery/')
+# def get_gallery():
+#     image_names = os.listdir('./static')
+#     return render_template("gallery.html", image_names = image_names)
+ 
 
 if __name__ == '__main__':
     app.run(debug = True)

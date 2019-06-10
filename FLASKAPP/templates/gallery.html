@@ -1,0 +1,10 @@
+{% extends 'header.html' %}
+{% block body %}
+
+{{image_names}}
+<hr>
+{% for image_name in image_names %}
+<img src='{{url_for("static", filename=image_name)}}' class="img-thumbnail" width="304" height="236">
+{% endfor %}
+
+{% endblock %}
